@@ -1,0 +1,123 @@
+.todo-item-container {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  opacity: 1;
+  border-left: 4px solid var(--primary-color);
+  animation: fadeIn 0.3s ease-in-out;
+  transform: translateZ(0);
+}
+
+.todo-item-container.done {
+  background-color: var(--gray-100);
+  opacity: 0.8;
+  border-left: 4px solid var(--success-color);
+}
+
+.todo-checkbox {
+  margin-right: 15px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  transition: transform 0.2s ease;
+}
+
+.todo-checkbox:hover {
+  transform: scale(1.1);
+}
+
+.todo-title {
+  flex: 1;
+  font-size: 16px;
+  color: var(--dark-color);
+  text-decoration: none;
+  cursor: pointer;
+  word-break: break-word;
+  padding: 6px 0;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.todo-title:hover {
+  color: var(--primary-color);
+}
+
+.todo-title.done {
+  color: var(--gray-600);
+  text-decoration: line-through;
+  font-weight: 400;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.todo-actions button {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.todo-actions button:first-child {
+  color: var(--primary-color);
+}
+
+.todo-actions button:first-child::before {
+  content: "✏️";
+  font-size: 14px;
+}
+
+.todo-actions button:first-child:hover {
+  background-color: rgba(67, 97, 238, 0.1);
+  transform: translateY(-2px);
+}
+
+.todo-actions button:first-child:disabled {
+  color: var(--gray-500);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.todo-actions button:last-child {
+  color: var(--danger-color);
+}
+
+.todo-actions button:last-child::before {
+  content: "🗑️";
+  font-size: 14px;
+}
+
+.todo-actions button:last-child:hover {
+  background-color: rgba(247, 37, 133, 0.1);
+  transform: translateY(-2px);
+}
+
+.edit-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.2);
+}
