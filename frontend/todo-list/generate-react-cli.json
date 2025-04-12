@@ -7,14 +7,14 @@
   "component": {
     "default": {
       "path": "src/components",
-      "withStyle": false,
+      "withStyle": true,
       "withTest": false,
       "withStory": false,
       "withLazy": true
     },
     "page": {
       "path": "src/pages",
-      "withStyle": false,
+      "withStyle": true,
       "withTest": false,
       "withStory": false,
       "withLazy": false
