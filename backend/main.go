@@ -7,6 +7,7 @@ import (
 	"todo-list-backend/routes" // Ajuste pro seu módulo
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors" // Add this import
 	"github.com/joho/godotenv"
 )
 
@@ -22,7 +23,7 @@ func main() {
 	}
 	host := os.Getenv("HOST")
 	if host == "" {
-		host = "localhost"
+		host = "0.0.0.0"
 	}
 	env := os.Getenv("ENV")
 	if env == "" {
@@ -32,6 +33,17 @@ func main() {
 	log.Printf("Rodando em %s:%s no ambiente %s", host, port, env)
 
 	app := fiber.New()
+
+	// Configure CORS with dynamic origin checking
+	app.Use(cors.New(cors.Config{
+		AllowOriginsFunc: func(origin string) bool {
+			return true // Allow all origins during development
+		},
+		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
+		AllowCredentials: true,
+		ExposeHeaders:    "Content-Length, Content-Type",
+	}))
 
 	// Configura todas as rotas
 	routes.SetupRoutes(app)

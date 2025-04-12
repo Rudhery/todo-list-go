@@ -1,0 +1,13 @@
+.app-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    margin: 20px auto;
+    padding: 15px 10px;
+  }
+}
